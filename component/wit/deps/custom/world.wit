@@ -4,7 +4,7 @@ package wasmcloud:example;
 // data, returning a string result.
 // We'll use this to send structured data to a component for processing.
 interface provider-executor {
-    run: func(command: string) -> result<string, string>;
+    run-command: func(command: string) -> string;
 }
 
 // While processing data, sometimes a component may need to request
@@ -28,6 +28,6 @@ interface system-info {
 world provider {
     // Providers `import` functions that it can call on a component
     import provider-executor;
+    export provider-executor;
     // Providers `export` functions that a component can call
-    export system-info;
 }

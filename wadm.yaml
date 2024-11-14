@@ -29,7 +29,7 @@ spec:
             target: custom-template
             namespace: wasmcloud
             package: example
-            interfaces: [system-info]
+            interfaces: [provider-executor]
 
     - name: custom-template
       type: capability
@@ -47,4 +47,4 @@ spec:
             target: test-component
             namespace: wasmcloud
             package: example
-            interfaces: [process-data]
+            interfaces: [provider-executor]

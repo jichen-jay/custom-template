@@ -7,6 +7,6 @@ world component {
   // Notice here the component has the inverse direction for importing/exporting interfaces
   // compared to the provider. This allows us to compose the component with the provider, each
   // import linking up to an export.
-  import wasmcloud:example/system-info;
+  import wasmcloud:example/provider-executor;
   export wasmcloud:example/provider-executor;
 }

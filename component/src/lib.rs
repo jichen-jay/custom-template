@@ -1,20 +1,11 @@
-wit_bindgen::generate!({ generate_all });
-
-use crate::exports::wasmcloud::example::process_data::Data;
-use crate::exports::wasmcloud::example::process_data::Guest;
-use crate::wasi::logging::logging::*;
-use crate::wasmcloud::example::system_info::Kind;
-
+use wasmcloud_component::export;
+use wasmcloud_component::wasi::logging::logging::Level;
 struct CustomTemplateComponent;
 
-impl Guest for CustomTemplateComponent {
-    fn process(data: Data) -> String {
-        log(Level::Info, "", &format!("Data received: {:?}", data));
-        // Request OS and architecture information
-        let os = crate::wasmcloud::example::system_info::request_info(Kind::Os);
-        let arch = crate::wasmcloud::example::system_info::request_info(Kind::Arch);
-        format!("Provider is running on {os}-{arch}").to_string()
+impl CustomTemplateComponent {
+    fn log(_level: Level, _context: String, _message: String) {
+        // Self::log(Level::Info, "some context".to_string(), "some message".to_string());
     }
 }
 
-export!(CustomTemplateComponent);
+// export!(CustomTemplateComponent);
