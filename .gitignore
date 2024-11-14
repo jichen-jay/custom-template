@@ -1,0 +1,10 @@
+# Rust build artifacts
+target/
+
+# Wash build artifacts
+build/
+Cargo.lock
+
+component/target
+component/Cargo.lock
+
